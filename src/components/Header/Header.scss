@@ -1,0 +1,18 @@
+.header {
+  padding: 5px 20px;
+  text-align: center;
+  background-color: #C0392B;
+
+  &__link {
+    color: white;
+
+    &--active {
+      font-weight: bold;
+    }
+
+    &:hover, &:focus {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
