@@ -8,7 +8,7 @@ class Header extends Component {
     return (
       <header className='header'>
         <IndexLink to='/' activeClassName='header__link'>
-          <h1>Carousell Reddit</h1>
+          <h1>Reddit for Carousell</h1>
         </IndexLink>
       </header>
     )
