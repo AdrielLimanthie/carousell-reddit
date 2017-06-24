@@ -11,6 +11,12 @@ class HomeView extends Component {
     topics: PropTypes.object
   }
 
+  constructor (props) {
+    super(props)
+
+    this.preprocessTopics = this.preprocessTopics.bind(this)
+  }
+
   transformTopicsToArray (obj) {
     const ids = Object.keys(obj)
     let arr = ids.map(id => {
@@ -23,11 +29,20 @@ class HomeView extends Component {
     return arr
   }
 
+  sortTopicsByPoint (topics) {
+    return topics.sort((a, b) => b.point - a.point)
+  }
+
+  preprocessTopics (topics) {
+    let newTopics = this.transformTopicsToArray(topics)
+    return this.sortTopicsByPoint(newTopics)
+  }
+
   render () {
     return (
       <div>
         <div className='column column--main'>
-          <TopicList topics={this.transformTopicsToArray(this.props.topics)} />
+          <TopicList topics={this.preprocessTopics(this.props.topics)} />
         </div>
         <div className='column column--side'>
           <Sidebar />
