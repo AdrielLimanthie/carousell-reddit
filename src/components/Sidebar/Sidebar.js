@@ -47,6 +47,7 @@ class Sidebar extends Component {
           <h6>Name of the Topic</h6>
           <input type='text'
             className='input mb-15'
+            maxLength={255}
             value={this.state.topicName}
             onChange={e => { this.handleStateChange('topicName', e.target.value) }}
             onKeyPress={e => e.key === 'Enter' && this.handleSubmitTopic(this.state.topicName)}
