@@ -1,6 +1,34 @@
 .topic {
+  display: flex;
+  flex-flow: row nowrap;
   padding: 15px;
   background-color: white;
   border: 1px solid #CCC;
   border-radius: 6px;
+
+  &__point {
+    width: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &__button {
+    width: 30px;
+    height: 40px;
+  }
+
+  &__vote {
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__name {
+    flex: 1;
+    padding: 0 10px;
+    font-weight: 500;
+  }
 }

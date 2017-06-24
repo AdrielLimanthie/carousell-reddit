@@ -29,6 +29,7 @@ class Sidebar extends Component {
 
   handleSubmitTopic (topic) {
     this.handleStateChange('formActive', false)
+    this.handleStateChange('topicName', '')
     this.props.addTopic(topic)
   }
 
