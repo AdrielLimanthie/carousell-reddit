@@ -33,9 +33,14 @@ class HomeView extends Component {
     return topics.sort((a, b) => b.point - a.point)
   }
 
+  limitTopicsCount (topics, count) {
+    return topics.slice(0, count)
+  }
+
   preprocessTopics (topics) {
     let newTopics = this.transformTopicsToArray(topics)
-    return this.sortTopicsByPoint(newTopics)
+    newTopics = this.sortTopicsByPoint(newTopics)
+    return this.limitTopicsCount(newTopics, 20)
   }
 
   render () {
