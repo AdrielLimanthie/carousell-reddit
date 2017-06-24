@@ -1,16 +1,25 @@
+// ------------------------------------
+// Sidebar Component
+// ------------------------------------
+
+// Import packages to be used
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types'
 
+// Import Redux actions for modifying topics & styles for Sidebar
 import { ACTIONS } from '../../routes/Home/components/module'
 import './Sidebar.scss'
 
+// Define a new React component
 class Sidebar extends Component {
+  // Define types of props used in this component
   static propTypes = {
     addTopic: PropTypes.func
   }
 
+  // Define a constructor for this component
   constructor (props) {
     super(props)
 
@@ -19,20 +28,24 @@ class Sidebar extends Component {
       topicName: ''
     }
 
+    // Bind functions to Sidebar component (due to JavaScript's scope behaviour)
     this.handleStateChange = this.handleStateChange.bind(this)
     this.handleSubmitTopic = this.handleSubmitTopic.bind(this)
   }
 
+  // Function to handle simple changes to this component's state
   handleStateChange (key, value, callback = () => {}) {
     this.setState({ [key]: value }, callback)
   }
 
+  // Function to handle when the user submit a new topic
   handleSubmitTopic (topic) {
     this.handleStateChange('formActive', false)
     this.handleStateChange('topicName', '')
     this.props.addTopic(topic)
   }
 
+  // Render the buttons & text input to add a new topic
   render () {
     return (
       <div className='sidebar'>
@@ -62,6 +75,7 @@ class Sidebar extends Component {
   }
 }
 
+// Mapping of Redux actions into this component's props
 const matchDispatchToProps = dispatch => {
   const actions = {
     addTopic: ACTIONS.addTopic
@@ -69,4 +83,5 @@ const matchDispatchToProps = dispatch => {
   return bindActionCreators(actions, dispatch)
 }
 
+// Export this component & connect it to Redux store
 export default connect(null, matchDispatchToProps)(Sidebar)

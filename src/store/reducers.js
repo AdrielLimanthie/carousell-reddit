@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import locationReducer from './location'
+// Import the reducer for topics
 import topicReducer from '../routes/Home/components/module'
 
 export const makeRootReducer = (asyncReducers) => {
+  // Register the topic reducer to Redux
   return combineReducers({
     location: locationReducer,
     topic: topicReducer,

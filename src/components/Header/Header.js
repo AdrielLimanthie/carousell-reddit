@@ -1,9 +1,17 @@
+// ------------------------------------
+// Header Component
+// ------------------------------------
+
+// Import packages to be used
 import React, { Component } from 'react'
 import { IndexLink } from 'react-router'
 
+// Import styles for Header
 import './Header.scss'
 
+// Define a new React component
 class Header extends Component {
+  // Render the Header
   render () {
     return (
       <header className='header'>
@@ -15,4 +23,5 @@ class Header extends Component {
   }
 }
 
+// Export this component
 export default Header

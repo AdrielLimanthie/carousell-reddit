@@ -1,7 +1,7 @@
 // ------------------------------------
 // Reducer for Topics
 // ------------------------------------
-// This is a file to contain reducer for topics.
+// This is a file to contain the reducer for topics.
 //
 // Users can add a new topic, upvote a topic and downvote a topic
 //
@@ -57,7 +57,8 @@ const initialState = {
 }
 
 export default function topicReducer (state = initialState, action) {
-  if (action.type === ADD_TOPIC) {
+  // Check the action type and perform procedures according to the selected action
+  if (action.type === ADD_TOPIC) {              // If the action is to add a new topic
     return Object.assign({}, state, {
       topics: Object.assign({}, state.topics, {
         [state.currentId]: {
@@ -67,7 +68,7 @@ export default function topicReducer (state = initialState, action) {
       }),
       currentId: state.currentId + 1
     })
-  } else if (action.type === UPVOTE_TOPIC) {
+  } else if (action.type === UPVOTE_TOPIC) {    // If the action is to upvote a topic
     return Object.assign({}, state, {
       topics: Object.assign({}, state.topics, {
         [action.payload]: Object.assign({}, state.topics[action.payload], {
@@ -75,7 +76,7 @@ export default function topicReducer (state = initialState, action) {
         })
       })
     })
-  } else if (action.type === DOWNVOTE_TOPIC) {
+  } else if (action.type === DOWNVOTE_TOPIC) {  // If the action is to downvote a topic
     return Object.assign({}, state, {
       topics: Object.assign({}, state.topics, {
         [action.payload]: Object.assign({}, state.topics[action.payload], {
