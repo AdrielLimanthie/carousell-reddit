@@ -1,0 +1,16 @@
+.column {
+  float: left;
+  padding: 0 15px;
+
+  &--main {
+    width: 75%;
+  }
+
+  &--side {
+    width: 25%;
+  }
+
+  @media screen and (max-width: 640px) {
+    width: 100%;
+  }
+}

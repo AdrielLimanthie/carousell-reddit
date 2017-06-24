@@ -1,9 +1,14 @@
 import React from 'react'
+
+import Sidebar from '../../../components/Sidebar'
 import './HomeView.scss'
 
 export const HomeView = () => (
   <div>
-    <h4>Welcome!</h4>
+    <div className='column column--main'></div>
+    <div className='column column--side'>
+      <Sidebar />
+    </div>
   </div>
 )
 
